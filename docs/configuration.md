@@ -122,7 +122,7 @@ Names are the field names from `api/src/core/config.py`, uppercased. Unrecognize
 | `MAX_PAUSE_DURATION_S` | `60.0` | Ceiling for a single `[pause:Ns]` tag or SSML `<break>`, longer values are clamped |
 | `MAX_TOTAL_PAUSE_S` | `300.0` | Ceiling for total pause silence per request, over it is a 400 |
 | `MAX_INPUT_LENGTH` | `1000000` | Ceiling for characters of text per request, over it is a 400 |
-| `ADVANCED_TEXT_NORMALIZATION` | `true` | Master switch for number/URL/email expansion before phonemizing; English only, per-request fields in [Text normalization](#text-normalization) |
+| `ADVANCED_TEXT_NORMALIZATION` | `true` | Master switch for number/URL/email expansion before phonemizing; English and Portuguese, per-request fields in [Text normalization](#text-normalization) |
 
 **Audio**
 
@@ -168,7 +168,7 @@ Names are the field names from `api/src/core/config.py`, uppercased. Unrecognize
 
 ## Text normalization
 
-`normalization_options` on the speech endpoints, per request. The normalizer runs for English only, the one language with a normalizer registered. Other languages go to the phonemizer as written, `remove_emoji` aside.
+`normalization_options` on the speech endpoints, per request. The normalizer runs for English and Brazilian Portuguese (`p`), the languages with a normalizer registered. Portuguese spells out numbers, money (`R$ 1.234,56`, `US$`, `€`) and times (`14:30`, `14h30`), and ignores the fields below other than `normalize` and `remove_emoji`. Other languages go to the phonemizer as written, `remove_emoji` aside.
 
 | Field | Default | |
 |---|---|---|

@@ -5,6 +5,9 @@ Notable changes to this project will be documented in this file.
 Per-PR attribution and contributor credits are published automatically on the corresponding GitHub release page; this file is the curated, human-readable summary.
 
 ## [Unreleased]
+### Added
+- Portuguese voices (`p`) read numbers, money (`R$ 1.234,56`, `US$`, `€`) and times (`14:30`, `14h30`) as words, following Brazilian conventions (#392).
+
 ### Fixed
 - `/dev/tune` informative error instead of bare `Internal Server Error` if the blend solver could not converge on a reference (scipy 1.14 nnls bug)
 - Apple Silicon (MPS): memory no longer grows with every request; it stays near its startup size instead of climbing until the machine runs out

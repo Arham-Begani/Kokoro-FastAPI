@@ -7,7 +7,7 @@ Read [AGENTS.md](../../../AGENTS.md) and [CONTRIBUTING.md](../../../CONTRIBUTING
 
 # Adding a language normalizer
 
-Text normalization (numbers, money, time, URLs, etc. spelled out before phonemization) is per language. Only English is implemented; other languages skip normalization and rely on the phonemizer.
+Text normalization (numbers, money, time, URLs, etc. spelled out before phonemization) is per language. English and Portuguese are implemented; other languages skip normalization and rely on the phonemizer.
 
 ## Where things live
 
@@ -16,6 +16,7 @@ Text normalization (numbers, money, time, URLs, etc. spelled out before phonemiz
 - `base.py`: `Normalizer`, the contract. `pass_order()` is the pass order, `normalize()` runs it. The language-neutral passes (quotes, CJK punctuation, whitespace) are implemented; every other pass is a hook that returns its input unchanged until overridden. Override `pass_order()` if a language needs a different order.
 - `english.py`: `EnglishNormalizer`, the reference implementation.
 - `english_data.py`: the English tables, TLDs, units, symbol readings, currencies.
+- `portuguese.py`: `PortugueseNormalizer`, a smaller example built on `num2words` (numbers, money, time only).
 - `__init__.py`: `LANGUAGES`, the registry. Lang codes come from `lang_codes` on each class.
 
 ## Adding one
